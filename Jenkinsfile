@@ -25,10 +25,10 @@ pipeline {
         }
            stage('Docker Build and Push') {
             steps {
-              withDockerRegistry(credentialsId: 'gitlab', url: 'https://gitlab.io/')  {
+              withDockerRegistry(credentialsId: 'gitlab', url: 'https://registry.gitlab.com/')  {
                 sh 'printenv'
-                sh 'docker build -t gitlab.io/subhamsahoo.work/subhamsahoo.work-project:""$GIT_COMMIT"" .'
-                sh 'docker push gitlab.io/subhamsahoo.work/subhamsahoo.work-project:""$GIT_COMMIT""'
+                sh 'docker build -t gitlab.io/subhamsahoo.work/newapp:""$GIT_COMMIT"" .'
+                sh 'docker push gitlab.io/subhamsahoo.work/newapp:""$GIT_COMMIT""'
             }
          }
       }
